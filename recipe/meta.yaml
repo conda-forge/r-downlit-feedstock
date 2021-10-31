@@ -1,4 +1,4 @@
-{% set version = "0.4.0" %}
+{% set version = '0.4.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -13,7 +13,7 @@ source:
   sha256: 740f6821dab66eabf94e9c00565d307f9839205e46e0014ff26d2b7e1bcefb83
 
 build:
-  merge_build_host: true  # [win]
+  merge_build_host: True  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -23,21 +23,26 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-brio
+    - r-desc
     - r-digest
     - r-evaluate
     - r-fansi
+    - r-memoise
     - r-rlang
     - r-vctrs
     - r-yaml
   run:
     - r-base
     - r-brio
+    - r-desc
     - r-digest
     - r-evaluate
     - r-fansi
+    - r-memoise
     - r-rlang
     - r-vctrs
     - r-yaml
@@ -48,12 +53,15 @@ test:
     - "\"%R%\" -e \"library('downlit')\""  # [win]
 
 about:
-  home: https://github.com/r-lib/downlit
+  home: https://downlit.r-lib.org/, https://github.com/r-lib/downlit
   license: MIT
-  summary: Syntax highlighting of R code, specifically designed for the needs of 'RMarkdown' packages like 'pkgdown', 'hugodown', and 'bookdown'. It includes linking of function calls to their documentation on the web, and automatic translation of ANSI escapes in output to the equivalent HTML.
+  summary: Syntax highlighting of R code, specifically designed for the needs of 'RMarkdown'
+    packages like 'pkgdown', 'hugodown', and 'bookdown'. It includes linking of function
+    calls to their documentation on the web, and automatic translation of ANSI escapes
+    in output to the equivalent HTML.
   license_family: MIT
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
     - LICENSE
 
 extra:
@@ -62,22 +70,21 @@ extra:
 
 # Package: downlit
 # Title: Syntax Highlighting and Automatic Linking
-# Version: 0.1.0
-# Authors@R: c(person(given = "Hadley", family = "Wickham", role = c("aut", "cre"), email = "hadley@rstudio.com"), person(given = "RStudio", role = "cph"))
+# Version: 0.4.0
+# Authors@R: c( person("Hadley", "Wickham", , "hadley@rstudio.com", role = c("aut", "cre")), person("RStudio", role = "cph") )
 # Description: Syntax highlighting of R code, specifically designed for the needs of 'RMarkdown' packages like 'pkgdown', 'hugodown', and 'bookdown'. It includes linking of function calls to their documentation on the web, and automatic translation of ANSI escapes in output to the equivalent HTML.
 # License: MIT + file LICENSE
-# Depends: R (>= 3.2.0)
-# Imports: brio, digest, evaluate, fansi, rlang, vctrs, yaml
-# Suggests: rmarkdown, jsonlite, MASS, testthat, covr, pkgload, xml2
-# Encoding: UTF-8
-# LazyData: true
-# RoxygenNote: 7.1.1
-# URL: https://github.com/r-lib/downlit
+# URL: https://downlit.r-lib.org/, https://github.com/r-lib/downlit
 # BugReports: https://github.com/r-lib/downlit/issues
+# Depends: R (>= 3.4.0)
+# Imports: brio, desc, digest, evaluate, fansi, memoise, rlang, vctrs, yaml
+# Suggests: covr, htmltools, jsonlite, leaflet, MASS, pkgload, rmarkdown, testthat (>= 3.0.0), xml2
 # Config/testthat/edition: 3
+# Encoding: UTF-8
+# RoxygenNote: 7.1.2
 # NeedsCompilation: no
-# Packaged: 2020-08-27 13:49:56 UTC; hadley
+# Packaged: 2021-10-29 18:02:03 UTC; hadley
 # Author: Hadley Wickham [aut, cre], RStudio [cph]
 # Maintainer: Hadley Wickham <hadley@rstudio.com>
 # Repository: CRAN
-# Date/Publication: 2020-09-01 16:00:08 UTC
+# Date/Publication: 2021-10-29 19:40:08 UTC
