@@ -34,6 +34,7 @@ requirements:
     - r-memoise
     - r-rlang
     - r-vctrs
+    - r-withr
     - r-yaml
   run:
     - r-base
@@ -45,6 +46,7 @@ requirements:
     - r-memoise
     - r-rlang
     - r-vctrs
+    - r-withr
     - r-yaml
 
 test:
