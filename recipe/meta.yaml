@@ -1,4 +1,4 @@
-{% set version = '0.4.0' %}
+{% set version = "0.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/downlit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/downlit/downlit_{{ version }}.tar.gz
-  sha256: 740f6821dab66eabf94e9c00565d307f9839205e46e0014ff26d2b7e1bcefb83
+  sha256: bba06505ac9f3cbc8dd7ff264aeec038e8e22dde383d0acfa76486ea729632c1
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -55,13 +55,10 @@ test:
 about:
   home: https://downlit.r-lib.org/, https://github.com/r-lib/downlit
   license: MIT
-  summary: Syntax highlighting of R code, specifically designed for the needs of 'RMarkdown'
-    packages like 'pkgdown', 'hugodown', and 'bookdown'. It includes linking of function
-    calls to their documentation on the web, and automatic translation of ANSI escapes
-    in output to the equivalent HTML.
+  summary: Syntax highlighting of R code, specifically designed for the needs of 'RMarkdown' packages like 'pkgdown', 'hugodown', and 'bookdown'. It includes linking of function calls to their documentation on the web, and automatic translation of ANSI escapes in output to the equivalent HTML.
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
