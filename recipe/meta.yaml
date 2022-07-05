@@ -1,4 +1,4 @@
-{% set version = "0.4.1" %}
+{% set version = "0.4.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/downlit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/downlit/downlit_{{ version }}.tar.gz
-  sha256: bba06505ac9f3cbc8dd7ff264aeec038e8e22dde383d0acfa76486ea729632c1
+  sha256: 33dff66909104d1a5ba8e57b1288986e82b61fd5e91dce0cd358d53724b37e3c
 
 build:
   merge_build_host: true  # [win]
