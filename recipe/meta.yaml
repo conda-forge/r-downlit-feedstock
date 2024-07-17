@@ -1,6 +1,5 @@
 {% set version = "0.4.4" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-downlit
@@ -13,8 +12,7 @@ source:
   sha256: 55c377dcee4adc48c1060e14079f3d1832453d066a2cf070530caa210c48f828
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   noarch: generic
   rpaths:
     - lib/R/lib/
